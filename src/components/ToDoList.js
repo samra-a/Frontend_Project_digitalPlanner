@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ToDoItems from "./ToDoItems";
 
-const ToDoList = ({toDoList}) => {
+const ToDoList = ({toDoList, handleAddItemButtonClick }) => {
 
     const [toDoItems, setToDoItems ] = useState([]);
 
@@ -11,19 +11,22 @@ const ToDoList = ({toDoList}) => {
         .then((response) => setToDoItems(response.toDos))
 
     }
+
+    const onButtonClick = ( )=>{
+        handleAddItemButtonClick(toDoList)
+    }
     
     
     return ( 
         <div onClick={handleClick}>
         <h3>{toDoList.title}</h3>
-
-        {/* conditional rendering- has to to do list been clicked? */}
-
-        {/* listofItems */}
-        {toDoItems ? <ToDoItems toDoItems={toDoItems} /> : <p>List is empty</p> }
-
         <p>{toDoList.listCategory}</p>
+        {toDoItems ? <ToDoItems toDoItems={toDoItems} /> : <p>List is empty</p> }
+        <div className="add-item">
+                    <button onClick={onButtonClick}>Add New Task</button>
         </div>
+        </div>
+
      );
 }
  

@@ -1,4 +1,5 @@
-const Category = ({listCategory}) => {
+
+const Category = () => {
     return ( 
         <>
         {listCategory.WORK}

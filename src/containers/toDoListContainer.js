@@ -1,5 +1,6 @@
 import { useState, useEffect} from "react";
 import ListOfLists from "../components/ListOfLists";
+import ToDoItemForm from "../components/ToDoItemForm";
 import ToDoList from "../components/ToDoList";
 import ToDoListForm from "../components/ToDoListForm";
 
@@ -10,6 +11,7 @@ const [toDoLists, setToDoLists] = useState([]);
 const [listToUpdate, setListToUpdate] = useState([]);
 const [filteredList, setFilteredList] = useState([])
 const [listCategory, setListCategory] = useState([]);
+const [displayItemForm, setDisplayItemForm] = useState(false);
 // const [itemsToUpdate, setItemsToUpdate] = useState(null);
 
 const SERVER_URL = "http://localhost:8080";
@@ -76,7 +78,7 @@ const updateToDoList = (listToUpdate) => {
     });
 }
 
-// ------------------------------------ ToDoItems-------------------------------------------
+// ------------------------------------ ToDoItems-------------------------------------------/
 
 const postToDoItem = (newToDoItem) => {
   fetch(`http://localhost:8080/to_dos/${toDoList.id}`, {
@@ -85,10 +87,9 @@ const postToDoItem = (newToDoItem) => {
     body: JSON.stringify(newToDoItem),
   })
     .then((response) => response.json())
-    .then((response) => {
-      setToDoList([...toDoList, response]);
-    });
-};
+    .then(() => getAllLists()) //reloads all lists
+    .then(()=>setDisplayItemForm(false))
+  };
 
    const filterToDoItemsByDueDate = (toDoItem) => {
     fetch (`http://localhost:8080/to_dos/by_due_date/${toDoItem.due}`)
@@ -96,13 +97,20 @@ const postToDoItem = (newToDoItem) => {
       .then((response) => setFilteredList(response))
    }
 
+   const handleAddItemButtonClick = (toDoListToUpdate)=>{
+    setDisplayItemForm(true)
+    setToDoList(toDoListToUpdate)
+
+   }
+
     return (
         <>
         <ListOfLists
-        toDoLists={toDoLists}
-        />
-        {toDoList ? <ToDoList toDoList={toDoList}/> : <p>Loading List</p> }   
+          toDoLists={toDoLists}
+          handleAddItemButtonClick={handleAddItemButtonClick}
+        /> 
         <ToDoListForm listCategory={listCategory} saveToDoList={saveToDoList} listToUpdate={listToUpdate}/>
+        {displayItemForm ? <ToDoItemForm postToDoItem={postToDoItem}/> : null}
         </>
 
       );
