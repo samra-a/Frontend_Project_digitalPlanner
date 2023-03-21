@@ -39,8 +39,8 @@ const postToDoList = (newToDoList) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        setToDoLists([...toDoLists, response]);
-      });
+        setToDoLists([...toDoLists, response.pop()]); //takes the last thing of the array 
+      }); 
   };
 
 const updateToDoList = (listToUpdate) => {
@@ -66,7 +66,7 @@ const updateToDoList = (listToUpdate) => {
   }
 
   const saveToDoList =(listToUpdate)=> {
-    listToUpdate.id ? updateToDoList(listToUpdate) : postToDoList(listToUpdate)
+    postToDoList(listToUpdate)
   }
 
   const deleteToDoList = (id) => {
