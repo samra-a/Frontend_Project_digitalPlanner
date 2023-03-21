@@ -1,15 +1,16 @@
 import { useState, useEffect} from "react";
 import ListOfLists from "../components/ListOfLists";
 import ToDoList from "../components/ToDoList";
+import ToDoListForm from "../components/ToDoListForm";
 
 const ToDoListContainer = () => {
 
 const [toDoList, setToDoList] = useState(null);
 const [toDoLists, setToDoLists] = useState([]);
 const [listToUpdate, setListToUpdate] = useState([]);
-const [toDoItems, setToDoItems] = useState([]);
-const [categories, setCategories] = useState([]);
-const [itemsToUpdate, setItemsToUpdate] = useState(null);
+const [filteredList, setFilteredList] = useState([])
+const [listCategory, setListCategory] = useState([]);
+// const [itemsToUpdate, setItemsToUpdate] = useState(null);
 
 const SERVER_URL = "http://localhost:8080";
 
@@ -27,7 +28,7 @@ const getAllLists = () =>{
 const getAllCategories= ()=>{
     fetch(`${SERVER_URL}/to_do_lists/category`)
       .then((response) => response.json())
-      .then((response) => setCategories(response))
+      .then((response) => setListCategory(response))
 }
 
 const postToDoList = (newToDoList) => {
@@ -38,7 +39,7 @@ const postToDoList = (newToDoList) => {
     })
       .then((response) => response.json())
       .then((response) => {
-        setToDoList([...toDoList, response]);
+        setToDoLists([...toDoLists, response]);
       });
   };
 
@@ -75,19 +76,33 @@ const updateToDoList = (listToUpdate) => {
     });
 }
 
-//onClickExpand
+// ------------------------------------ ToDoItems-------------------------------------------
+
+const postToDoItem = (newToDoItem) => {
+  fetch(`http://localhost:8080/to_dos/${toDoList.id}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(newToDoItem),
+  })
+    .then((response) => response.json())
+    .then((response) => {
+      setToDoList([...toDoList, response]);
+    });
+};
+
+   const filterToDoItemsByDueDate = (toDoItem) => {
+    fetch (`http://localhost:8080/to_dos/by_due_date/${toDoItem.due}`)
+      .then((response) => response.json())
+      .then((response) => setFilteredList(response))
+   }
 
     return (
         <>
         <ListOfLists
         toDoLists={toDoLists}
         />
-        {toDoList ? 
-         <ToDoList
-         toDoList={toDoList}
-        /> :
-        <p>Loading List</p>
-}   
+        {toDoList ? <ToDoList toDoList={toDoList}/> : <p>Loading List</p> }   
+        <ToDoListForm listCategory={listCategory} saveToDoList={saveToDoList} listToUpdate={listToUpdate}/>
         </>
 
       );
