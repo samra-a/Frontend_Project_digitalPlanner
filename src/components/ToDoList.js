@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ToDoItem from "./ToDoItem";
+import ToDoItems from "./ToDoItems";
 
 const ToDoList = ({toDoList}) => {
 
@@ -16,11 +16,11 @@ const ToDoList = ({toDoList}) => {
     return ( 
         <div onClick={handleClick}>
         <h3>{toDoList.title}</h3>
+
         {/* conditional rendering- has to to do list been clicked? */}
+
         {/* listofItems */}
-        {/* <ListOfItems
-            toDoItems={toDoItems}
-        /> */}
+        {toDoItems ? <ToDoItems toDoItems={toDoItems} /> : <p>List is empty</p> }
 
         <p>{toDoList.listCategory}</p>
         </div>

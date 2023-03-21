@@ -82,6 +82,12 @@ const updateToDoList = (listToUpdate) => {
         <ListOfLists
         toDoLists={toDoLists}
         />
+        {toDoList ? 
+         <ToDoList
+         toDoList={toDoList}
+        /> :
+        <p>Loading List</p>
+}   
         </>
 
       );
