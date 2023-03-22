@@ -1,12 +1,13 @@
+import ListOfLists from "./ListOfLists";
 
-const Category = () => {
-    return ( 
-        <>
-        {listCategory.WORK}
-        {listCategory.SELFCARE}
-        {listCategory.HOUSEHOLD}
-        {listCategory.HEALTH}
-        </>
+
+const Category = ({toDoLists, handleAddItemButtonClick, category}) =>  {
+    return (
+        <div className="category">
+            <h2>{category}</h2>
+            <ListOfLists toDoLists={toDoLists}
+          handleAddItemButtonClick={handleAddItemButtonClick}/>
+        </div>
      );
 }
  

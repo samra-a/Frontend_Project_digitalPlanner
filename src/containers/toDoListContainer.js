@@ -1,8 +1,9 @@
 import { useState, useEffect} from "react";
+import Category from "../components/Category";
 import ListOfLists from "../components/ListOfLists";
 import ToDoItemForm from "../components/ToDoItemForm";
 import ToDoList from "../components/ToDoList";
-import ToDoListForm from "../components/ToDoListForm";
+import ToDoListForm from "../components/ToDoListForm"
 
 const ToDoListContainer = () => {
 
@@ -25,6 +26,7 @@ const getAllLists = () =>{
     fetch(`${SERVER_URL}/to_do_lists`)
       .then((response) => response.json())
       .then((response) => setToDoLists(response))
+      // .then((response) => setToDoLists(response.map((toDoLists)=>toDoLists.title)))
 }
 
 const getAllCategories= ()=>{
@@ -78,7 +80,7 @@ const updateToDoList = (listToUpdate) => {
     });
 }
 
-// ------------------------------------ ToDoItems-------------------------------------------/
+// ------------------------------------ ToDoItems-------------------------------------------//
 
 const postToDoItem = (newToDoItem) => {
   fetch(`http://localhost:8080/to_dos/${toDoList.id}`, {
@@ -100,15 +102,33 @@ const postToDoItem = (newToDoItem) => {
    const handleAddItemButtonClick = (toDoListToUpdate)=>{
     setDisplayItemForm(true)
     setToDoList(toDoListToUpdate)
-
    }
+
+  //  const handleItemClosureClick = ()=>{
+
+  //   setToDoLists(getAllLists())
+  //  }
+  
+
+   const groupByCategory = (category) => {
+    return toDoLists.filter((toDoList) => {
+      console.log(toDoList)
+      console.log(category)
+      return toDoList.listCategory === category
+    })
+   }
+
 
     return (
         <>
-        <ListOfLists
+        {/* <ListOfLists
           toDoLists={toDoLists}
           handleAddItemButtonClick={handleAddItemButtonClick}
-        /> 
+        />  */}
+        <Category category={"Work"} toDoLists ={groupByCategory("WORK")} handleAddItemButtonClick={handleAddItemButtonClick}/>
+        <Category category={"Self-Care"} toDoLists={groupByCategory("SELFCARE")} handleAddItemButtonClick={handleAddItemButtonClick}/>
+        <Category category={"Household"}  toDoLists ={groupByCategory("HOUSEHOLD")} handleAddItemButtonClick={handleAddItemButtonClick}/>
+        <Category category={"Health"}  toDoLists ={groupByCategory("HEALTH")} handleAddItemButtonClick={handleAddItemButtonClick}/>
         <ToDoListForm listCategory={listCategory} saveToDoList={saveToDoList} listToUpdate={listToUpdate}/>
         {displayItemForm ? <ToDoItemForm postToDoItem={postToDoItem}/> : null}
         </>

@@ -42,7 +42,7 @@ const ToDoListForm = ({saveToDoList}) => {
         <option value= "HEALTH"> Health</option>
         <option value= "HOUSEHOLD"> Household</option>
       </select>
-      <input type="submit" value= "create"/>
+      <input className="add-list-button" type="submit" value= "create"/>
       {/* <button type="button" onClick={handleDelete}>Delete List</button> */}
     </form>
   );
