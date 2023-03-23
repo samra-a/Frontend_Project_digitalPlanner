@@ -2,7 +2,7 @@ import { useState } from "react";
 import ToDoItem from "./ToDoItem";
 import ToDoItems from "./ToDoItems";
 
-const ToDoList = ({ toDoList, handleAddItemButtonClick, toDoLists }) => {
+const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
 
     const [toDoItems, setToDoItems] = useState([]);
     const [open, setOpen] = useState(false);
@@ -20,7 +20,8 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick, toDoLists }) => {
 
 
 
-    const onButtonClick = () => {
+    const onButtonClick = (event) => {
+        event.stopPropagation()
         handleAddItemButtonClick(toDoList)
     }
 
@@ -54,7 +55,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick, toDoLists }) => {
 
     return (
         <div onClick={handleClick}>
-            <h3>{toDoList.title}</h3>
+            <h3 className="title">{toDoList.title}</h3>
             {/* <p>{toDoList.listCategory}</p> */}
             {open && (
             <>

@@ -4,7 +4,7 @@ const ToDoItem = ({toDoItem, handleItemCompletionClick}) => {
 
     const [done, setDone] = useState(toDoItem.done)
 
-    const onCheckBoxClick = ( )=>{
+    const onCheckBoxClick = ()=>{
         setDone(!done)
     }
 
@@ -13,7 +13,7 @@ const ToDoItem = ({toDoItem, handleItemCompletionClick}) => {
     }, [done])
 
     return (  
-            <div className="item">
+            <div className="item" onClick={event=>event.stopPropagation()}>
                 <h3>{toDoItem.title}</h3>
                 <p>{toDoItem.description}</p>
                 <p>{toDoItem.due}</p>
