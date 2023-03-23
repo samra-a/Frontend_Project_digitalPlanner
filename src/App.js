@@ -1,4 +1,5 @@
 import './App.css';
+import Sidebar from './components/Sidebar';
 import ToDoListContainer from './containers/toDoListContainer';
 
 function App() {
@@ -6,6 +7,10 @@ function App() {
     <>
     <h1>Digital Planner</h1>
     <ToDoListContainer/>
+
+    <div className="App">
+      <Sidebar />
+    </div>
 
     </>
   );
