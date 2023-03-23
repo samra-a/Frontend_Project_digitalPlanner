@@ -5,7 +5,7 @@ import ToDoItemForm from "../components/ToDoItemForm";
 import ToDoList from "../components/ToDoList";
 import ToDoListForm from "../components/ToDoListForm"
 
-const ToDoListContainer = () => {
+const ToDoListContainer = ({closeModal}) => {
 
 const [toDoList, setToDoList] = useState(null);
 const [toDoLists, setToDoLists] = useState([]);
@@ -129,7 +129,7 @@ const postToDoItem = (newToDoItem) => {
         <Category category={"Self-Care"} toDoLists={groupByCategory("SELFCARE")} handleAddItemButtonClick={handleAddItemButtonClick}/>
         <Category category={"Household"}  toDoLists ={groupByCategory("HOUSEHOLD")} handleAddItemButtonClick={handleAddItemButtonClick}/>
         <Category category={"Health"}  toDoLists ={groupByCategory("HEALTH")} handleAddItemButtonClick={handleAddItemButtonClick}/>
-        <ToDoListForm listCategory={listCategory} saveToDoList={saveToDoList} listToUpdate={listToUpdate}/>
+        <ToDoListForm listCategory={listCategory} closeModal={closeModal} saveToDoList={saveToDoList} listToUpdate={listToUpdate}/>
         {displayItemForm ? <ToDoItemForm postToDoItem={postToDoItem}/> : null}
         </>
 

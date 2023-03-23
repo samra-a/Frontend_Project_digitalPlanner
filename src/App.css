@@ -8,6 +8,8 @@ body {
   padding: 0;
 }
 
+/* SIDEBAR  */
+
 .Sidebar {
   height: 100%;
   width: 250px;
@@ -52,7 +54,9 @@ body {
   flex: 70%;
 }
 
-.add_button {
+/* MODAL BUTTON */
+
+.App .openModalBtn {
   border-radius: 50%;
   border: 2px solid lightcoral;
   color: lightcoral;
@@ -63,8 +67,81 @@ body {
   cursor: pointer;
 }
 
-.add_button:hover {
+.App .openModalBtn:hover {
   background-color: lightcoral;
   color: white;
   transition-duration: 0.4s;
+}
+
+.modalContainer {
+  width: max-content;
+  height: max-content;
+  border-radius: 5px;
+  background-color: #ceae9dff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  color: white;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.modalContainer .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer .footer button {
+  background-color: rgb(202, 149, 120);
+  color: white;
+  border: solid;
+  border-color: rgb(202, 149, 120);
+  border-radius: 20px;
+  height: 40px; 
+  width: 100px;
+  cursor: pointer;
+  font-style: bold;
+  margin-right: 10px;
+}
+
+.modalContainer .footer button:hover {
+  background-color: white;
+  border-color: rgb(202, 149, 120);
+  border-width: 2px;
+  color: rgb(202, 149, 120);
+  transition-duration: 0.4s;
+  font-weight: bold;
+}
+
+#cancelBtn {
+  background-color: white;
 }

@@ -1,6 +1,6 @@
 import { useState} from "react";
 
-const ToDoListForm = ({saveToDoList}) => {
+const ToDoListForm = ({saveToDoList, closeModal}) => {
   const [newToDoList, setNewToDoList] = useState({
     title: "",
     listCategory: null
@@ -23,12 +23,26 @@ const ToDoListForm = ({saveToDoList}) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+
+    <div className='modalContainer'>
+    <div className="titleCloseBtn">
+      <button onClick={() => closeModal(false)}> x </button>
+      </div>
+    <div className='title'>
+      <h2>Create A New Task</h2>
+    </div>
+    <div className='body'>
+      <p>Enter Title</p>
+      <p>Select category</p>
+
+      <form onSubmit={handleSubmit}>
         <h2>Create a List</h2>
+        <h3>Title:</h3>
       <input
         type="text"
         id="listTitle"
         name="listTitle"
+        placeholder="List Title..."
         value={newToDoList.title}
         onChange={(e) => setNewToDoList({ ...newToDoList, title: e.target.value })}
       />
@@ -42,10 +56,20 @@ const ToDoListForm = ({saveToDoList}) => {
         <option value= "HEALTH"> Health</option>
         <option value= "HOUSEHOLD"> Household</option>
       </select>
-      <input className="add-list-button" type="submit" value= "create"/>
+      <input className="add-list-button" type="submit" value= "Submit"/>
       {/* <button type="button" onClick={handleDelete}>Delete List</button> */}
     </form>
+
+    </div>
+    <div className='footer'>
+      <button onClick={() => closeModal(false)}>Cancel</button>
+      <button>Submit</button>
+    </div>
+  </div>
+
+  
   );
 };
 export default ToDoListForm;
+
 
