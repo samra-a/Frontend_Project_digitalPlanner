@@ -43,7 +43,7 @@ const  ToDoItemForm= ({postToDoItem}) => {
         value={newToDoItem.due}
         onChange={(e) => setNewToDoItem({ ...newToDoItem, due: e.target.value })}
 />
-      <input type="submit" value= "create"/>
+      <input type="submit" value= "+"/>
         </form>
      );
 }

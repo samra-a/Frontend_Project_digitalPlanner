@@ -46,9 +46,8 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
                 })
                 setToDoItems(updatedItemList);
             })
-
     }
-    // updatedItemList.push(updatedItemList.splice(updatedItemList.indexOf(responseToDoItem), 1)[0]);
+   
 
 
 
@@ -56,12 +55,11 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
     return (
         <div onClick={handleClick}>
             <h3 className="title">{toDoList.title}</h3>
-            {/* <p>{toDoList.listCategory}</p> */}
             {open && (
             <>
             {toDoItems ? <ToDoItems toDoItems={toDoItems} handleItemCompletionClick={handleItemCompletionClick} /> : <p>List is empty</p>}
             <div className="add-item-button">
-                <button onClick={onButtonClick}>Add New Task</button>
+                <button onClick={onButtonClick}>+</button>
             </div>
             </>
         )}

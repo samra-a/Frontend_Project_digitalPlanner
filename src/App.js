@@ -1,18 +1,15 @@
 import './App.css';
-import Sidebar from './components/Sidebar';
 import ToDoListContainer from './containers/toDoListContainer';
 
 function App() {
   return (
-    <>
-    <h1>Digital Planner</h1>
+
+    <div className="app">
+    <h1>G.Y.S.T</h1>
+    <h2>Get You Stuff Together</h2>
     <ToDoListContainer/>
-
-    <div className="App">
-      <Sidebar />
+    
     </div>
-
-    </>
   );
 }
 
