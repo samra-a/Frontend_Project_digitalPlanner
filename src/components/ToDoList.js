@@ -6,6 +6,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
 
     const [toDoItems, setToDoItems] = useState([]);
     const [open, setOpen] = useState(false);
+    const [isDone, setIsDone] = useState(false); //Latest Add
 
 
 
@@ -46,6 +47,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
                 })
                 setToDoItems(updatedItemList);
             })
+            setIsDone(toDoItems.every(item => item.done)) //Added
     }
    
 
@@ -54,7 +56,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
 
     return (
         <div onClick={handleClick}>
-            <h3 className="title">{toDoList.title}</h3>
+            <h3 className={isDone ? "grey-title" : "title"}>{toDoList.title}</h3>
             {open && (
             <>
             {toDoItems ? <ToDoItems toDoItems={toDoItems} handleItemCompletionClick={handleItemCompletionClick} /> : <p>List is empty</p>}
