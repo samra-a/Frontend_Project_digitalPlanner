@@ -303,4 +303,8 @@ body {
   color: lightcoral;
   transition-duration: 0.4s;
   font-weight: bold;
-}
+ }
+ 
+  .grey-title {
+  background-color: #B0B0B0;
+  }
