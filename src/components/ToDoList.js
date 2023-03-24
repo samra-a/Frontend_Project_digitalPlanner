@@ -53,6 +53,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
 
 
     return (
+        <div className="list-design">
         <div onClick={handleClick}>
             <h3 className="title">{toDoList.title}</h3>
             {open && (
@@ -61,10 +62,12 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
             <div className="add-item-button">
                 <button onClick={onButtonClick}>+</button>
             </div>
+            
             </>
+        
         )}
         </div>
-
+        </div>
     );
 }
 

@@ -32,11 +32,9 @@ const ToDoListForm = ({saveToDoList, closeModal}) => {
       <h2>Create A New Task</h2>
     </div>
     <div className='body'>
-      <p>Enter Title</p>
-      <p>Select category</p>
 
     <form onSubmit={handleSubmit}>
-        <h2>Create a List</h2>
+    <p>Enter Title</p>
       <input
         type="text"
         id="listTitle"
@@ -44,6 +42,7 @@ const ToDoListForm = ({saveToDoList, closeModal}) => {
         value={newToDoList.title}
         onChange={(e) => setNewToDoList({ ...newToDoList, title: e.target.value })}
       />
+      <p>Select category</p>
       <select 
       onChange={handleCategoryChange} 
       name="category" 
@@ -54,15 +53,16 @@ const ToDoListForm = ({saveToDoList, closeModal}) => {
         <option value= "HEALTH"> Health</option>
         <option value= "HOUSEHOLD"> Household</option>
       </select>
-      <input className="add-list-button" type="submit" value= "create"/>
+      {/* <input className="add-list-button" type="submit" value= "create"/> */}
+      <div className='footer'>
+      <button onClick={() => closeModal(false)}>Cancel</button>
+      <button type="submit">Submit</button>
+    </div>
       {/* <button type="button" onClick={handleDelete}>Delete List</button> */}
     </form>
 
     </div>
-    <div className='footer'>
-      <button onClick={() => closeModal(false)}>Cancel</button>
-      <button>Submit</button>
-    </div>
+   
   </div>
   );
 };
