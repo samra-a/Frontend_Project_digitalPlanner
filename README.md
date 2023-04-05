@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# GYST Frontend Group Project
+
+## Project Description
+As part of the Bright Network Technology Academy (BNTA), our group was tasked with developing the front-end of an API that had already been created by another BNTA group. This project aimed to give us practical experience with working on an unfamiliar API and building the necessary front-end components using React. Our team was tasked with working on the ToDoList API of GYST.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+<hr />
 
-In the project directory, you can run:
+## Diagrams
+### Wireframe Diagram
+### Component Diagram
 
-### `npm start`
+<hr />
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
+The technologies we used to build the front end of this project include:
+- HTML
+- CSS
+- JavaScript
+- React
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<hr />
 
-### `npm test`
+## Installation:
+Please ensure the following are installed on your system.
+- Node
+- Intellij IDEA , running with JDK 17
+- Postgres
+- Postman
+- Postico
+- Visual Studio Code
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Server-side API Instructions
+### Open and run the back end API in IntelliJ:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ 1.	Clone the project from the repository to your local machine:
+    - ssh: `git@github.com:XixianWei/back_end_project_toDoList.git`
+ 2. Create a local database called `to_do_list` (In the command line use the command `creatdb to_do_list`)
+  4.	Download and install IntelliJ IDEA
+  5.	Open the API in IntelliJ IDEA
+  6.	Run API from `to_do_list` file
+  Ensure the API is running by opening `http://localhost:8080` on your desktop browser.
+  
+<hr />
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Client Side Instructions
+### Open and run the React project in VSCode:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  1.	Clone the project from the repository to your local machine: 
+     - `git@github.com:samra-a/Digital_Planner.git`
+  3.	Ensure node modules are installed: In Terminal: `npm i` or `npm install`
+  4.	Download and open VSCode
+  5.	Run React App:
+        -	In Terminal: `npm start`
+        Check app is running by opening `http://localhost:3000` on your desktop browser
+  6. You will also need to install <br>
+  -`npm install @mui/material @emotion/react @emotion/styled` <br>
+  -`npm install @mui/icons-material`
+  
+ <hr />
+  
+## Testing Methods
+- Backend routes were tested through Postman prior to starting the front end project.
+- Front end routes were tested through button functionality.
 
-### `npm run eject`
+<hr />
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributors
+- [Samra Afzaal](https://github.com/samra-a)
+- [Wilson Sanches](https://github.com/W-Sanches94)
+- [Leah Simon](https://github.com/nsleeah)
