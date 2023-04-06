@@ -16,7 +16,7 @@ const ToDoList = ({ toDoList, handleAddItemButtonClick }) => {
             .then((response) => setToDoItems(response.toDos))
 
         setOpen(!open);
-
+    
     }
 
 
